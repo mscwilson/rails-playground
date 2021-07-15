@@ -1,2 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section id="home">
+
+  <div class="parent grid">
+    <div class="div1"><%= image_tag("skiing.jpg") %></div>
+    <div class="div2"> </div>
+    <div class="div3"><%= link_to "Page View", nil, role: "button", data: { tooltip: "Click to generate fake page views!" } %></div>
+    <div class="div4"><%= link_to "Screen View", nil, role: "button", data: { tooltip: "Click to generate fake screen views! Which are somehow different from page views!" } %></div>
+    <div class="div5"><%= link_to "eCommerce", nil, role: "button", data: { tooltip: "Click to generate fake eCommerce events!" } %></div>
+    <div class="div6"><%= link_to "Struct", nil, role: "button", data: { tooltip: "Click to generate fake Struct events!" } %></div>
+    <div class="div7"><%= link_to "Self Describing", nil, role: "button", data: { tooltip: "Click to generate fake Self Describing Events!" } %></div>
+    <div class="div8"> </div>
+  </div>
+
+</section>
