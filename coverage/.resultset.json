@@ -1,22 +1,24 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/mirandawilson/ruby-tracker/rails-playground/spec/helpers/home_helper_spec.rb": {
+      "/Users/mirandawilson/ruby-tracker/rails-playground/spec/features/looking_at_page_spec.rb": {
         "lines": [
           1,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
           null,
           1,
           1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -35,55 +37,24 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           0,
           0,
           null,
-          1,
           null,
           1,
-          null,
-          null,
-          null,
           null,
           1,
           null,
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
           null,
           1,
           null,
-          null,
           1,
-          null,
           null,
           null
         ]
@@ -390,6 +361,25 @@
           null
         ]
       },
+      "/Users/mirandawilson/ruby-tracker/rails-playground/spec/helpers/home_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/mirandawilson/ruby-tracker/rails-playground/spec/requests/home_spec.rb": {
         "lines": [
           1,
@@ -463,6 +453,6 @@
         ]
       }
     },
-    "timestamp": 1626268820
+    "timestamp": 1626355188
   }
 }
