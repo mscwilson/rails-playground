@@ -14,4 +14,12 @@ console.log("in js tracker erb version");
     n.src = w;
     g.parentNode.insertBefore(n, g);
   }
-})(window, document, "script", "-/sp.js", "snowplow");
+})(window, document, "script", "<%= root_url + '-/sp.js' %>", "snowplow");
+
+snowplow('newTracker', 'sp', '0.0.0.0:9090');
+
+snowplow('enableActivityTracking', {
+  minimumVisitLength: 30,
+  heartbeatDelay: 10
+});
+snowplow('trackPageView');
