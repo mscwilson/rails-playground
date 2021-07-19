@@ -5,15 +5,34 @@
     <div class="div2"> </div>
     <div class="div3">
       <%= link_to "Page View",
-        page_view_path(url: "home/index"), method: :post,
-        role: "button", data: { tooltip: "Click to generate page views!" },
-        remote: true
+        track_page_view_path(page_url: "home/index"), method: :post,
+        role: "button", remote: true
       %>
     </div>
-    <div class="div4"><%= link_to "Screen View", nil, role: "button", data: { tooltip: "Click to generate screen views!" } %></div>
-    <div class="div5"><%= link_to "eCommerce", nil, role: "button", data: { tooltip: "Click to generate eCommerce events!" } %></div>
-    <div class="div6"><%= link_to "Struct", nil, role: "button", data: { tooltip: "Click to generate Struct events!" } %></div>
-    <div class="div7"><%= link_to "Self Describing", nil, role: "button", data: { tooltip: "Click to generate Self Describing Events!" } %></div>
+    <div class="div4">
+      <%= link_to "Screen View",
+        track_screen_view_path(name: "index page"), method: :post,
+        role: "button", remote: true
+      %>
+    </div>
+    <div class="div5">
+      <%= link_to "eCommerce",
+        track_ecommerce_path, method: :post,
+        role: "button", remote: true
+      %>
+    </div>
+    <div class="div6">
+      <%= link_to "Struct",
+        track_struct_path, method: :post,
+        role: "button", remote: true
+      %>
+    </div>
+    <div class="div7">
+      <%= link_to "Self Describing",
+        track_self_describing_path, method: :post,
+        role: "button", remote: true
+      %>
+    </div>
     <div class="div8"> </div>
   </div>
 
