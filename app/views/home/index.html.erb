@@ -3,7 +3,13 @@
   <div class="parent grid">
     <div class="div1"><%= image_tag("skiing.jpg") %></div>
     <div class="div2"> </div>
-    <div class="div3"><%= link_to "Page View", nil, role: "button", data: { tooltip: "Click to generate page views!" } %></div>
+    <div class="div3">
+      <%= link_to "Page View",
+        page_view_path(url: "home/index"), method: :post,
+        role: "button", data: { tooltip: "Click to generate page views!" },
+        remote: true
+      %>
+    </div>
     <div class="div4"><%= link_to "Screen View", nil, role: "button", data: { tooltip: "Click to generate screen views!" } %></div>
     <div class="div5"><%= link_to "eCommerce", nil, role: "button", data: { tooltip: "Click to generate eCommerce events!" } %></div>
     <div class="div6"><%= link_to "Struct", nil, role: "button", data: { tooltip: "Click to generate Struct events!" } %></div>

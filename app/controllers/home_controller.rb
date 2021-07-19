@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-    Tracker.instance.page_view("home/index")
   end
 
   def about
@@ -10,6 +9,10 @@ class HomeController < ApplicationController
 
   def history
     Tracker.instance.page_view("home/history")
+  end
+
+  def page_view
+    Tracker.instance.page_view(params[:url])
   end
 
 end
