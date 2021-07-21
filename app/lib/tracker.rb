@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'snowplow-tracker'
+require "snowplow-tracker"
 require "singleton"
 
 class Tracker
@@ -37,7 +37,8 @@ class Tracker
   end
 
   def emitter
+    return @emitter if @emitter != nil
+
     @emitter = SnowplowTracker::AsyncEmitter.new("localhost:9090")
   end
-
 end

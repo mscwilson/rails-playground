@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def index
   end
 
@@ -24,24 +23,24 @@ class HomeController < ApplicationController
   # POST
   def track_ecommerce
     transaction = {
-                    "order_id" => '12345',
-                    "total_value" => 80.99,
-                    "city" => 'Berlin',
-                    "country" => 'DE',
-                    "currency" => 'EUR'
-                  }
+      "order_id" => "12345",
+      "total_value" => 80.99,
+      "city" => "Berlin",
+      "country" => "DE",
+      "currency" => "EUR"
+    }
     items = [{
-                "sku" => 'ex0099',
-                "price" => 20,
-                "quantity" => 3,
-                "category" => 'bulbs'
-              },
-              {
-                "sku" => 'ex0361',
-                "price" => 20.99,
-                "quantity" => 1,
-                "name" => 'watering can'
-              }]
+      "sku" => "ex0099",
+      "price" => 20,
+      "quantity" => 3,
+      "category" => "bulbs"
+    },
+             {
+               "sku" => "ex0361",
+               "price" => 20.99,
+               "quantity" => 1,
+               "name" => "watering can"
+             }]
     Tracker.instance.ecommerce(transaction, items)
   end
 
@@ -56,5 +55,4 @@ class HomeController < ApplicationController
     event_details = { linkId: "replace this schema!" }
     Tracker.instance.self_describing(schema_name, event_details)
   end
-
 end

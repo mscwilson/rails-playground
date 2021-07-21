@@ -12,3 +12,6 @@
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
