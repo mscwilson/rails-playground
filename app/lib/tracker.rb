@@ -6,12 +6,13 @@ require "singleton"
 class Tracker
   include Singleton
 
-  def page_view(page_url)
-    tracker.track_page_view(page_url)
+  def page_view(page_url, referrer)
+    page_title = nil
+    tracker.track_page_view(page_url, page_title, referrer)
   end
 
-  def screen_view(name)
-    tracker.track_screen_view(name)
+  def screen_view(name, id)
+    tracker.track_screen_view(name, id)
   end
 
   def ecommerce(transaction, items)
@@ -22,9 +23,9 @@ class Tracker
     tracker.track_struct_event(category, action)
   end
 
-  def self_describing(schema_name, event_properties)
+  def self_describing(schema, event_properties)
     event_json = SnowplowTracker::SelfDescribingJson.new(
-      schema_name, event_properties
+      schema, event_properties
     )
     tracker.track_self_describing_event(event_json)
   end
@@ -33,12 +34,15 @@ class Tracker
   private
 
   def tracker
+    return @tracker if !@tracker.nil?
+
     @tracker = SnowplowTracker::Tracker.new(emitter)
   end
 
   def emitter
-    return @emitter if @emitter != nil
+    return @emitter if !@emitter.nil?
 
+    # p "\n ATTN new emitter !! \n"
     @emitter = SnowplowTracker::AsyncEmitter.new("localhost:9090")
   end
 end

@@ -1,3 +1,5 @@
+<% content_for(:page_title) { "Rails Example: Home" } %>
+
 <section id="home">
 
   <div class="parent grid">
@@ -5,13 +7,13 @@
     <div class="div2"> </div>
     <div class="div3">
       <%= link_to "Page View",
-        track_page_view_path(page_url: "home/index"), method: :post,
+        track_page_view_path, method: :post,
         role: "button", remote: true
       %>
     </div>
     <div class="div4">
       <%= link_to "Screen View",
-        track_screen_view_path(name: "index page"), method: :post,
+        track_screen_view_path(name: "Home#index", id: "screen001"), method: :post,
         role: "button", remote: true
       %>
     </div>

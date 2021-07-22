@@ -1,33 +1,23 @@
 class HomeController < ApplicationController
-  after_action :print_url, :track_page_view, only: [:index, :about, :history]
-
-  def print_url
-
-    p request.url
-    p request.original_url
-  end
+  after_action :track_page_view, only: [:index, :about, :history]
 
   def index
-    p "hello in index"
   end
 
   def about
-    Tracker.instance.page_view("home/about")
   end
 
   def history
-    Tracker.instance.page_view("home/history")
   end
 
   # POST
   def track_page_view
-    p "hello in track page view"
-    Tracker.instance.page_view(request.url)
+    Tracker.instance.page_view(request.original_url, request.headers["Referer"])
   end
 
   # POST
   def track_screen_view
-    Tracker.instance.screen_view(params[:name])
+    Tracker.instance.screen_view(params[:name], params[:id])
   end
 
   # POST
@@ -35,8 +25,6 @@ class HomeController < ApplicationController
     transaction = {
                     "order_id" => "12345",
                     "total_value" => 80.99,
-                    "city" => "Berlin",
-                    "country" => "DE",
                     "currency" => "EUR"
                   }
     items = [{
@@ -45,12 +33,12 @@ class HomeController < ApplicationController
               "quantity" => 3,
               "category" => "bulbs"
             },
-                    {
-                      "sku" => "ex0361",
-                      "price" => 20.99,
-                      "quantity" => 1,
-                      "name" => "watering can"
-                    }]
+            {
+              "sku" => "ex0361",
+              "price" => 20.99,
+              "quantity" => 1,
+              "name" => "watering can"
+            }]
     Tracker.instance.ecommerce(transaction, items)
   end
 
@@ -61,8 +49,10 @@ class HomeController < ApplicationController
 
   # POST
   def track_self_describing
-    schema_name = "iglu:test.mwilson/test-link/jsonschema/1-0-0"
-    event_details = { linkId: "replace this schema!" }
-    Tracker.instance.self_describing(schema_name, event_details)
+    schema = "iglu:com.snowplowanalytics/dogs/jsonschema/1-0-0"
+    event_details = { dog_name: "Ace",
+                      breed: "pomeranian",
+                      cuteness: "very high"}
+    Tracker.instance.self_describing(schema, event_details)
   end
 end
