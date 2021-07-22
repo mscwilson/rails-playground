@@ -1,5 +1,14 @@
 class HomeController < ApplicationController
+  after_action :print_url, :track_page_view, only: [:index, :about, :history]
+
+  def print_url
+
+    p request.url
+    p request.original_url
+  end
+
   def index
+    p "hello in index"
   end
 
   def about
@@ -12,7 +21,8 @@ class HomeController < ApplicationController
 
   # POST
   def track_page_view
-    Tracker.instance.page_view(params[:page_url])
+    p "hello in track page view"
+    Tracker.instance.page_view(request.url)
   end
 
   # POST
@@ -23,24 +33,24 @@ class HomeController < ApplicationController
   # POST
   def track_ecommerce
     transaction = {
-      "order_id" => "12345",
-      "total_value" => 80.99,
-      "city" => "Berlin",
-      "country" => "DE",
-      "currency" => "EUR"
-    }
+                    "order_id" => "12345",
+                    "total_value" => 80.99,
+                    "city" => "Berlin",
+                    "country" => "DE",
+                    "currency" => "EUR"
+                  }
     items = [{
-      "sku" => "ex0099",
-      "price" => 20,
-      "quantity" => 3,
-      "category" => "bulbs"
-    },
-             {
-               "sku" => "ex0361",
-               "price" => 20.99,
-               "quantity" => 1,
-               "name" => "watering can"
-             }]
+              "sku" => "ex0099",
+              "price" => 20,
+              "quantity" => 3,
+              "category" => "bulbs"
+            },
+                    {
+                      "sku" => "ex0361",
+                      "price" => 20.99,
+                      "quantity" => 1,
+                      "name" => "watering can"
+                    }]
     Tracker.instance.ecommerce(transaction, items)
   end
 
