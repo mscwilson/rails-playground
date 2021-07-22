@@ -1,7 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "navigating around the site", type: :feature do
-
   scenario "about and history pages" do
     visit "/"
     click_on "About"
@@ -13,5 +12,4 @@ feature "navigating around the site", type: :feature do
     find(".navbar-title").click
     expect(current_path).to eq "/home/index"
   end
-
 end
