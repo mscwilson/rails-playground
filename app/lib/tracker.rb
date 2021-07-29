@@ -34,15 +34,14 @@ class Tracker
   private
 
   def tracker
-    return @tracker if !@tracker.nil?
+    return @tracker unless @tracker.nil?
 
     @tracker = SnowplowTracker::Tracker.new(emitter)
   end
 
   def emitter
-    return @emitter if !@emitter.nil?
+    return @emitter unless @emitter.nil?
 
-    # p "\n ATTN new emitter !! \n"
     @emitter = SnowplowTracker::AsyncEmitter.new("localhost:9090")
   end
 end

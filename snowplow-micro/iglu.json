@@ -19,7 +19,7 @@
         "vendorPrefixes": ["com.snowplowanalytics"],
         "connection": {
           "http": {
-            "uri": "https://raw.githubusercontent.com/mscwilson/rails-playground/public/iglu"
+            "uri": "https://raw.githubusercontent.com/mscwilson/rails-playground/main/public/iglu"
           }
         }
       },

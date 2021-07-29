@@ -1,6 +1,3 @@
-<% ignore do %>
-console.log("in js tracker erb version");
-
 (function (p, l, o, w, i, n, g) {
   if (!p[i]) {
     p.GlobalSnowplowNamespace = p.GlobalSnowplowNamespace || [];
@@ -24,4 +21,3 @@ snowplow('enableActivityTracking', {
   heartbeatDelay: 10
 });
 snowplow('trackPageView');
-<% ignore end %>

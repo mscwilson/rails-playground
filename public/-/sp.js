@@ -6,7 +6,6 @@
 
 "use strict";
 
-console.log("inside sp.js");
 !(function () {
   function e(e, n) {
     var t,

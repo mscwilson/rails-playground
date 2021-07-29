@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  after_action :track_page_view, only: [:index, :about, :history]
+  after_action :track_page_view, only: %i[index about history]
 
   def index
   end
@@ -28,17 +28,17 @@ class HomeController < ApplicationController
                     "currency" => "EUR"
                   }
     items = [{
-              "sku" => "ex0099",
-              "price" => 20,
-              "quantity" => 3,
-              "category" => "bulbs"
-            },
-            {
-              "sku" => "ex0361",
-              "price" => 20.99,
-              "quantity" => 1,
-              "name" => "watering can"
-            }]
+               "sku" => "ex0099",
+               "price" => 20,
+               "quantity" => 3,
+               "category" => "bulbs"
+             },
+             {
+               "sku" => "ex0361",
+               "price" => 20.99,
+               "quantity" => 1,
+               "name" => "watering can"
+             }]
     Tracker.instance.ecommerce(transaction, items)
   end
 
@@ -52,7 +52,7 @@ class HomeController < ApplicationController
     schema = "iglu:com.snowplowanalytics/dogs/jsonschema/1-0-0"
     event_details = { dog_name: "Ace",
                       breed: "pomeranian",
-                      cuteness: "very high"}
+                      cuteness: "very high" }
     Tracker.instance.self_describing(schema, event_details)
   end
 end

@@ -13,5 +13,11 @@ Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/EmptyMethod:
   EnforcedStyle: expanded
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: align_braces
