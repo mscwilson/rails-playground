@@ -49,10 +49,19 @@ class HomeController < ApplicationController
 
   # POST
   def track_self_describing
-    schema = "iglu:com.snowplowanalytics/dogs/jsonschema/1-0-0"
+    schema = "iglu:test.example.iglu/dogs/jsonschema/1-0-0"
     event_details = { dog_name: "Ace",
                       breed: "pomeranian",
                       cuteness: "very high" }
     Tracker.instance.self_describing(schema, event_details)
+
+    schema = "iglu:com.snowplowanalytics.snowplow/link_click/jsonschema/1-0-1"
+    event_details = { targetUrl: "https://test.com",
+                      elementClasses: [ "bold", "header" ]
+                    }
+    Tracker.instance.self_describing(schema, event_details)
+
+    schema = "iglu:test.example.iglu/cart_action_event/jsonschema/1-0-0"
+    Tracker.instance.self_describing(schema, { type: "add" })
   end
 end

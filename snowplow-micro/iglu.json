@@ -15,8 +15,8 @@
       },
       {
         "name": "this example repository",
-        "priority": 5,
-        "vendorPrefixes": ["com.snowplowanalytics"],
+        "priority": 1,
+        "vendorPrefixes": ["test.example.iglu"],
         "connection": {
           "http": {
             "uri": "https://raw.githubusercontent.com/mscwilson/rails-playground/main/public/iglu"
@@ -30,6 +30,16 @@
         "connection": {
           "http": {
             "uri": "https://raw.githubusercontent.com/snowplow-incubator/snowplow-micro-examples/main/iglu"
+          }
+        }
+      },
+      {
+        "name": "this project repo for Iglu",
+        "priority": 10,
+        "vendorPrefixes": ["test.mwilson"],
+        "connection": {
+          "http": {
+            "uri": "https://raw.githubusercontent.com/mscwilson/mscwilson.github.io/tracker/assets/iglu"
           }
         }
       }
