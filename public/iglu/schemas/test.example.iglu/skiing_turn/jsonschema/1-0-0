@@ -3,31 +3,23 @@
     "description": "Example schema for Rails project",
     "self": {
         "vendor": "test.example",
-        "name": "dogs",
+        "name": "skiing_turn",
         "format": "jsonschema",
         "version": "1-0-0"
     },
 
     "type": "object",
     "properties": {
-        "dog_name": {
+        "turnType": {
             "type": "string",
             "maxLength": 255
         },
-        "breed": {
-          "type": "string",
-          "maxLength": 100
-        },
-        "dog_age": {
+        "difficulty": {
           "type": "integer",
-          "minimum": 0,
-          "maximum": 50
-        },
-        "cuteness": {
-          "type": "string",
-          "maxLength": 40
+          "minimum": 1,
+          "maximum": 10
         }
     },
-    "required": ["dog_name", "breed"],
+    "required": ["turnType"],
     "additionalProperties": false
 }
