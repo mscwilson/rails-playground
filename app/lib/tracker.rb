@@ -37,6 +37,9 @@ class Tracker
     return @tracker unless @tracker.nil?
 
     @tracker = SnowplowTracker::Tracker.new(emitter)
+
+    # using the snowplow_ruby_duid gem
+    # @tracker.set_user_id(snowplow_domain_userid)
   end
 
   def emitter

@@ -28,6 +28,8 @@ gem "jbuilder", "~> 2.7"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
+# Snowplow
+gem "snowplow_ruby_duid"
 gem "snowplow-tracker"
 
 group :development, :test do
