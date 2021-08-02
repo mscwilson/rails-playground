@@ -29,7 +29,7 @@ gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.4", require: false
 
 # Snowplow
-gem "snowplow_ruby_duid"
+# gem "snowplow_ruby_duid"
 gem "snowplow-tracker"
 
 group :development, :test do
